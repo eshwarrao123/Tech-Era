@@ -1,70 +1,185 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+PROJECT URL : https://mytechera007.ccbp.tech/
 
-In the project directory, you can run:
+### Design Files
 
-### `npm start`
+<details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<summary>Click to view</summary>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Home Route
 
-### `npm test`
+  - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Courses Success](https://assets.ccbp.in/frontend/content/react-js/tech-era-home-success-lg-output.png)
+  - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Courses Failure](https://assets.ccbp.in/frontend/content/react-js/tech-era-home-failure-lg-output.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Course Item Details Route
 
-### `npm run build`
+  - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Course Details Success](https://assets.ccbp.in/frontend/content/react-js/tech-era-course-details-success-lg-output.png)
+  - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Course Details Failure](https://assets.ccbp.in/frontend/content/react-js/tech-era-course-details-failure-lg-output.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Not Found Route
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](https://assets.ccbp.in/frontend/content/react-js/tech-era-page-not-found-lg-output.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</details>
 
-### `npm run eject`
+### Set Up Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<summary>Click to view</summary>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Download dependencies by running `npm install`
+- Start up the app using `npm start`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</details>
 
-## Learn More
+### Completion Instructions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<summary>Functionality to be added</summary>
 
-### Code Splitting
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The app must have the following functionalities
 
-### Analyzing the Bundle Size
+- When the app is opened initially, Home Route should be displayed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Home Route**
+  - When the Home Route is opened,
+    - An HTTP GET request should be made to the **coursesApiUrl**
+      - The _loader_ should be displayed while the HTTP request is fetching the data
+      - If the HTTP GET request made is successful, then the list of courses received in response should be displayed
+      - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/tech-era-home-failure-lg-output.png) should be displayed
+        - When the **Retry** button is clicked, then an HTTP GET request should be made to **coursesApiUrl**
+  - When a course is clicked, then the page should be navigated to the Course Item Details Route
+- **Course Item Details Route**
+  - When the Course Item Details Route is opened,
+    - An HTTP GET request should be made to the **courseDetailsApiUrl** with the `id` as path parameter
+      - The _loader_ should be displayed while the HTTP request is fetching the data
+      - If the HTTP GET request made is successful, then the course details received in response should be displayed
+      - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/tech-era-course-details-failure-lg-output.png) should be displayed
+        - When the **Retry** button is clicked, then an HTTP GET request should be made to **courseDetailsApiUrl**
+- **Not Found Route**
+  - When a random path is provided in the URL, then the page should be navigated to the Not Found Route
+- When the **website logo** image is clicked, then the page should be navigated to the Home Route
 
-### Making a Progressive Web App
+</details>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<details>
 
-### Advanced Configuration
+<summary>API Requests & Responses</summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br/>
 
-### Deployment
+**coursesApiUrl**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### API: `https://apis.ccbp.in/te/courses`
 
-### `npm run build` fails to minify
+#### Method: `GET`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Description:
+
+Returns a response containing the list of all courses
+
+#### Response:
+
+```json
+{
+  "courses": [
+      {
+        "id": "736d1108-d98b-482f-bfd6-234498c3571f",
+        "name": "HTML",
+        "logo_url": "https://assets.ccbp.in/frontend/react-js/tech-era/html-logo-img.png"
+      },
+       ...
+  ],
+  "total": 16
+}
+```
+
+**courseDetailsApiUrl**
+
+#### API: `https://apis.ccbp.in/te/courses/:id`
+
+#### Method: `GET`
+
+#### Description:
+
+Returns a response containing details of the course
+
+#### Response:
+
+```json
+{
+  "course_details": {
+    "id": "736d1108-d98b-482f-bfd6-234498c3571f",
+    "name": "HTML",
+    "image_url": "https://assets.ccbp.in/frontend/react-js/tech-era/html-img.png",
+    "description": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript. Web browsers receive HTML documents from a web server or local storage and render the documents into multimedia web pages."
+  }
+}
+```
+
+</details>
+
+### Important Note
+
+<details>
+
+<summary>Click to view</summary>
+
+<br/>
+
+**The following instructions are required for the tests to pass**
+
+- Home Route should consist of `/` in the URL path
+- Course Item Details Route should consist of `/courses/:id` in the URL path
+- No need to use the `BrowserRouter` in `App.js` as we have already included in the `index.js` file
+- Wrap the `Loader` component with an HTML container element and add the `data-testid` attribute value as `loader` to it
+- Each course logo image in the Home Route should have the alt as the value of the key "name" from each course object in the courses list
+- Each course image in the Course Item Details Route should have the alt as the value of the key "name" in the course details object
+
+</details>
+
+### Resources
+
+<details>
+
+<summary>Image URLs</summary>
+
+- https://assets.ccbp.in/frontend/react-js/tech-era/website-logo-img.png alt should be **website logo**
+- https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png alt should be **failure view**
+- https://assets.ccbp.in/frontend/react-js/tech-era/not-found-img.png alt should be **not found**
+
+</details>
+
+<details>
+
+<summary>Colors</summary>
+
+<br/>
+
+<div style="background-color:#f1f5f9; width: 150px; padding: 10px; color: black">Hex: #f1f5f9</div>
+<div style="background-color:#1e293b; width: 150px; padding: 10px; color: white">Hex: #1e293b</div>
+<div style="background-color:#475569; width: 150px; padding: 10px; color: white">Hex: #475569</div>
+<div style="background-color:#ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
+<div style="background-color:#4656a1; width: 150px; padding: 10px; color: white">Hex: #4656a1</div>
+<div style="background-color:#64748b; width: 150px; padding: 10px; color: white">Hex: #64748b</div>
+<div style="background-color:#e8e8e8; width: 150px; padding: 10px; color: black">Hex: #e8e8e8</div>
+
+</details>
+
+<details>
+
+<summary>Font-families</summary>
+
+- Roboto
+
+</details>
+
+> ### _Things to Keep in Mind_
+>
+> - All components you implement should go in the `src/components` directory.

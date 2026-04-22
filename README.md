@@ -37,10 +37,7 @@ PROJECT URL : https://mytechera007.ccbp.tech/
 
 ### Completion Instructions
 
-<details>
 
-
-<details>
 
 <summary>API Requests & Responses</summary>
 

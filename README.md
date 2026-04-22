@@ -39,34 +39,6 @@ PROJECT URL : https://mytechera007.ccbp.tech/
 
 <details>
 
-<summary>Functionality to be added</summary>
-
-<br/>
-
-The app must have the following functionalities
-
-- When the app is opened initially, Home Route should be displayed
-
-- **Home Route**
-  - When the Home Route is opened,
-    - An HTTP GET request should be made to the **coursesApiUrl**
-      - The _loader_ should be displayed while the HTTP request is fetching the data
-      - If the HTTP GET request made is successful, then the list of courses received in response should be displayed
-      - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/tech-era-home-failure-lg-output.png) should be displayed
-        - When the **Retry** button is clicked, then an HTTP GET request should be made to **coursesApiUrl**
-  - When a course is clicked, then the page should be navigated to the Course Item Details Route
-- **Course Item Details Route**
-  - When the Course Item Details Route is opened,
-    - An HTTP GET request should be made to the **courseDetailsApiUrl** with the `id` as path parameter
-      - The _loader_ should be displayed while the HTTP request is fetching the data
-      - If the HTTP GET request made is successful, then the course details received in response should be displayed
-      - If the HTTP GET request made is unsuccessful, then the [Failure view](https://assets.ccbp.in/frontend/content/react-js/tech-era-course-details-failure-lg-output.png) should be displayed
-        - When the **Retry** button is clicked, then an HTTP GET request should be made to **courseDetailsApiUrl**
-- **Not Found Route**
-  - When a random path is provided in the URL, then the page should be navigated to the Not Found Route
-- When the **website logo** image is clicked, then the page should be navigated to the Home Route
-
-</details>
 
 <details>
 
@@ -125,24 +97,7 @@ Returns a response containing details of the course
 
 </details>
 
-### Important Note
 
-<details>
-
-<summary>Click to view</summary>
-
-<br/>
-
-**The following instructions are required for the tests to pass**
-
-- Home Route should consist of `/` in the URL path
-- Course Item Details Route should consist of `/courses/:id` in the URL path
-- No need to use the `BrowserRouter` in `App.js` as we have already included in the `index.js` file
-- Wrap the `Loader` component with an HTML container element and add the `data-testid` attribute value as `loader` to it
-- Each course logo image in the Home Route should have the alt as the value of the key "name" from each course object in the courses list
-- Each course image in the Course Item Details Route should have the alt as the value of the key "name" in the course details object
-
-</details>
 
 ### Resources
 
